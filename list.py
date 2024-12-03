@@ -77,6 +77,13 @@ print(list(reversedIterator))
 """
 Метод списка изменяет исходный список, функция же sorted не изменяет его а создает новый отсортированный список
 """
+listForMethod = ['camel', 'banana', 'palm_tree', 'pineapple', 'monkey', 'racoon', 'cat', 'dog', 'sand', 'sun', 'sea', 'sky', 'fish']
+listForFunc = ['camel', 'banana', 'palm_tree', 'pineapple', 'monkey', 'racoon', 'cat', 'dog', 'sand', 'sun', 'sea', 'sky', 'fish']
+listForMethod.sort()
+print('сортировка sort vs sorted', listForMethod)
+print('сортировка sort vs sorted', sorted(listForFunc))
+print('сортировка sort vs sorted', listForFunc)
+
 
 # index - верни индекс эл-та который равен значению
 listForIndexOf = [1, 2, 3, 4, 5, 6, 7, 'y']
