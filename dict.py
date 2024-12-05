@@ -11,9 +11,23 @@ dictionary = {
 }
 
 # Знакомые нам методы из JS - выдают ключи, значения, пары ключ-значение
-print(list(dictionary.keys()))
-print(list(dictionary.values()))
-print(list(dictionary.items()))
+print(dictionary.keys())
+print(dictionary.values())
+print(dictionary.items())
+
+# Create a sample collection
+users = {'Hans': 'active', 'Éléonore': 'inactive', '景太郎': 'active'}
+
+# Strategy:  Iterate over a copy
+for user, status in users.copy().items():
+    if status == 'inactive':
+        del users[user]
+
+# Strategy:  Create a new collection
+active_users = {}
+for user, status in users.items():
+    if status == 'active':
+        active_users[user] = status
 
 # как всегда проверку существования - лучше делать через in или not in
 print(3 not in dictionary)
@@ -45,8 +59,46 @@ print(dict([('sape', 4139), ('guido', 4127), ('jack', 4098)]))
 # вот такой синтаксис применим только если все ключи являются строками
 print(dict(sape=4139, guido=4127, jack=4098))
 
-"""Дописать раздел - кто может быть ключами - потому что тут больше вариации чем в JS и все веселее"""
+"""Какие типы могут быть ключами у словаря? Неизменяемые. 
+А именно: все примитивы (строки, все типы чисел, boolean) а также кортеж и frozenset
+"""
+
+dictAllKeys = {
+    'bla': 6567,
+    5: 'rew',
+    (5, 7, 9): 'reee',
+    True: 65,
+    False: 200,
+}
+
+print(dictAllKeys[True])
+print(dictAllKeys[(5, 7, 9)])
+
+# немного о способах создания
 
 # генератор словаря
 dictFromGen = {x: x**2 for x in (2, 4, 6)}
 print(dictFromGen)
+
+"""
+В конструктор dict можно вставить итерируемый объект.
+Каждый элемент в итерируемом объекте сам по себе должен быть итерируемым объектом ровно с двумя элементами. 
+Первый элемент каждого элемента становится ключом в новом словаре, 
+а второй элемент — соответствующим значением. 
+Если ключ встречается более одного раза, последнее значение для этого ключа становится соответствующим значением в новом словаре.
+"""
+dict_from_zip = dict(zip([1, 2, 3], ['a', 'b', 'c']))
+print('dict_from_zip', dict_from_zip)
+
+# итерация по items
+for name, value in dict_from_zip.items():
+    print(name, value)
+
+iterator_view_object = iter(dict_from_zip.items())
+
+# итератор по view object у items
+for name, value in dict_from_zip.items():
+    print(iterator_view_object.__next__())
+
+dict_from_iter = dict(iter(dict_from_zip.items()))
+print('dict_from_iter', dict_from_iter)

@@ -165,4 +165,13 @@ masFullDeep2[0][0] = 88
 print('masFullDeep2 ', masFullDeep2)
 print('masFullDeep3 ', masFullDeep3)
 
+"""
+Изменяемые типы данных: словари, списки, множества
+Неизменяемые типы данных: примитивы, и frozenset и кортежи
+"""
 
+tuple1 = (5, 8, 90)
+tuple2 = tuple1
+
+print('tuple1 ', tuple1)
+print('tuple2 ', tuple2)
