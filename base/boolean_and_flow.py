@@ -4,6 +4,7 @@ print(bool([]))
 print(bool({}))
 print(bool(set()))
 print(bool(0))
+print(bool(-1))
 print(bool(None))
 
 # if else elif
@@ -132,6 +133,25 @@ def model_with_coords(cordinats):
             print(f'3D Model {x} {y} {z}')
 
 model_with_coords(another_cords)
+
+# цикл for
+for i in range(1, 10, 2):
+    print(i)
+
+for i in [200, 300, 500, 69, 23]:
+    print(i)
+
+for (index, elm) in list(enumerate([200, 300, 500, 69, 23])):
+    print(index, 'ggh', elm)
+
+# pass
+
+# continue
+
+# break
+
+
+
 
 
 

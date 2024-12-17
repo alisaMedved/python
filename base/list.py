@@ -113,6 +113,9 @@ for i in range(len(a)):
 for i in a:
     print(a.index(i), i)
 
+for (index, elm) in list(enumerate(a)):
+    print(index, 'ggh', elm)
+
 """
 Преимуществ использования map():
 
